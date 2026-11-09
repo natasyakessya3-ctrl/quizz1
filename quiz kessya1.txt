@@ -1,0 +1,48 @@
+# Program Penilaian Ujian Mahasiswa
+
+print("===== PROGRAM PENILAIAN UJIAN =====")
+
+# Input nama mahasiswa
+nama = input("Masukkan nama mahasiswa: ")
+
+# Menentukan target nilai
+if nama.lower() == "andi":
+    target = 70
+elif nama.lower() == "budi":
+    target = 75
+elif nama.lower() == "citra":
+    target = 80
+else:
+    print("Nama mahasiswa tidak terdaftar!")
+    exit()
+
+print("Nama mahasiswa :", nama)
+print("Target nilai   :", target)
+
+# Perulangan ujian maksimal 3 kali
+percobaan = 1
+lulus = False
+
+while percobaan <= 3:
+    print("\nPercobaan ke-", percobaan)
+
+    nilai = float(input("Masukkan nilai ujian: "))
+
+    if nilai >= target:
+        lulus = True
+        print("Selamat, Anda berhasil lulus!")
+        break
+    else:
+        print("Nilai belum mencapai target.")
+
+    percobaan += 1
+
+# Menampilkan hasil akhir
+print("\n===== HASIL AKHIR =====")
+
+if lulus:
+    print(nama, "dinyatakan LULUS.")
+    print("Jumlah percobaan:", percobaan)
+else:
+    print(nama, "dinyatakan TIDAK LULUS.")
+    print("Sudah mengikuti 3 kali percobaan.")
