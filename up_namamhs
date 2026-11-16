@@ -1,0 +1,52 @@
+jumlah = int(input("Masukkan jumlah mahasiswa: "))
+
+nama_mahasiswa = []
+nilai_mahasiswa = []
+kategori_mahasiswa = []
+
+lulus = 0
+tidak_lulus = 0
+
+# Input data mahasiswa
+for i in range(jumlah):
+    print("\nMahasiswa ke-", i + 1)
+
+    nama = input("Masukkan nama: ")
+    nilai = float(input("Masukkan nilai: "))
+
+    # Menentukan kategori nilai
+    if nilai >= 85 and nilai <= 100:
+        kategori = "A (Sangat Baik)"
+    elif nilai >= 75:
+        kategori = "B (Baik)"
+    elif nilai >= 60:
+        kategori = "C (Cukup)"
+    elif nilai >= 0:
+        kategori = "D (Tidak Lulus)"
+    else:
+        print("Nilai tidak valid!")
+        kategori = "Tidak Valid"
+
+    # Menghitung kelulusan
+    if nilai >= 60 and nilai <= 100:
+        lulus += 1
+    else:
+        tidak_lulus += 1
+
+    nama_mahasiswa.append(nama)
+    nilai_mahasiswa.append(nilai)
+    kategori_mahasiswa.append(kategori)
+
+# Menampilkan hasil penilaian
+print("\n===== HASIL PENILAIAN AKADEMIK =====")
+
+for i in range(jumlah):
+    print("\nNama     :", nama_mahasiswa[i])
+    print("Nilai    :", nilai_mahasiswa[i])
+    print("Kategori :", kategori_mahasiswa[i])
+
+# Menampilkan jumlah kelulusan
+print("\n===== REKAPITULASI =====")
+print("Jumlah mahasiswa :", jumlah)
+print("Mahasiswa lulus  :", lulus)
+print("Tidak lulus      :", tidak_lulus)
